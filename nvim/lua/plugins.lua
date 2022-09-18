@@ -6,16 +6,6 @@ end
 
 packer.startup(function(use)
   use "wbthomason/packer.nvim"
-  --use {
-  --  "svrana/neosolarized.nvim",
-  --  requires = { "tjdevries/colorbuddy.nvim" }
-  --}
-  --use {
-  -- 'rmehri01/onenord.nvim',
-  --  config = function()
-  --    require("config.onenord").setup()
-  --  end,
-  --}
 
   use {
     "rmehri01/onenord.nvim",
@@ -24,6 +14,8 @@ packer.startup(function(use)
 
   use "nvim-lua/plenary.nvim" -- Common utilities
   use "kyazdani42/nvim-web-devicons" -- File icons
+  use "goolord/alpha-nvim" -- Startup page
+
   use "L3MON4D3/LuaSnip"
 
   use "nvim-lualine/lualine.nvim" -- Statusline
