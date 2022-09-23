@@ -31,7 +31,7 @@ vim.opt.backspace = { "start", "eol", "indent" }
 vim.opt.path:append { "**" } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { "*/node_modules/*" }
 vim.opt.wildignore:append { "*/_build/*" }
-vim.opt.wildignore:append "**/.git/*"
+vim.opt.wildignore:append { "*/.git/*" }
 vim.bo.textwidth = 120
 vim.opt.laststatus = 3
 vim.opt.signcolumn = "yes" -- Always show sign column

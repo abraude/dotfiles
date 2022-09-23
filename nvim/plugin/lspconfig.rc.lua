@@ -79,7 +79,6 @@ nvim_lsp.sumneko_lua.setup {
   },
 }
 
-
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
@@ -97,5 +96,15 @@ nvim_lsp.elixirls.setup {
   },
   initializationOptions = {
     cacheDirectory = "/tmp/ccls"
-  }
+  },
+  filetypes = { "elixir", "heex", "html", "eelixir" },
+}
+
+nvim_lsp.tailwindcss.setup {
+  capabilities = capabilities,
+  filetypes = { "eelixir", "elixir", "html", "html-eex", "heex", "css", "less", "postcss", "javascript",
+    "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+  userLanguages = {
+    eelixir = "html",
+  },
 }

@@ -3,6 +3,7 @@ if (not status) then return end
 local lspkind = require "lspkind"
 
 ---@cast cmp -?
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 cmp.setup({
   snippet = {
@@ -30,9 +31,10 @@ cmp.setup({
 })
 
 vim.cmd [[
-  set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
+
+-- set completeopt=menuone,noinsert,noselect
 
 -- " Use <Tab> and <S-Tab> to navigate through popup menu
 -- inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

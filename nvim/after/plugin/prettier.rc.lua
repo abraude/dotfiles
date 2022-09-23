@@ -12,6 +12,9 @@ prettier.setup {
     "json",
     "scss",
     "less",
-    "lua"
+    "lua",
+    "html",
+    "elixir",
+    "heex"
   }
 }

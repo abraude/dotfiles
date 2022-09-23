@@ -52,4 +52,6 @@ packer.startup(function(use)
   use "numToStr/Comment.nvim"
   use "phaazon/hop.nvim"
   use "ggandor/leap.nvim"
+
+  use "nathom/filetype.nvim"
 end)
