@@ -1,23 +1,35 @@
 local status, null_ls = pcall(require, "null-ls")
 if (not status) then return end
 
-local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
+-- diagnostic sources
+local diagnostics = null_ls.builtins.diagnostics
 
-null_ls.setup {
-  sources = {
-    null_ls.builtins.diagnostics.eslint_d.with({
-      diagnostics_format = '[eslint] #{m}\n(#{c})'
-    }),
-    null_ls.builtins.diagnostics.codespell,
-  },
-  on_attach = function(client, bufnr)
-    if client.server_capabilities.documentFormattingProvider then
-      vim.api.nvim_clear_autocmds { buffer = 0, group = augroup_format }
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup_format,
-        buffer = 0,
-        callback = function() vim.lsp.buf.formatting_seq_sync() end
-      })
-    end
-  end,
+-- formatting sources
+local formatting = null_ls.builtins.formatting
+
+local sources = {
+  diagnostics.credo,
+  diagnostics.codespell,
+  formatting.mix,
+  formatting.lua_format,
 }
+
+local on_attach = function(client)
+  if client.resolved_capabilities.document_formatting then
+    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
+  end
+
+  vim.cmd [[
+    augroup document_highlight
+      autocmd! * <buffer>
+      autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+      autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+    augroup END
+  ]]
+end
+
+
+null_ls.setup({
+  sources = sources,
+  on_attach = on_attach,
+})
