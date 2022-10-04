@@ -37,10 +37,12 @@ telescope.setup {
         },
       },
     },
+    project = {},
   },
 }
 
 telescope.load_extension("file_browser")
+telescope.load_extension("project")
 
 vim.keymap.set('n', ';f',
   function()
@@ -72,6 +74,9 @@ vim.keymap.set('n', ';;', function()
 end)
 vim.keymap.set('n', ';e', function()
   builtin.diagnostics()
+end)
+vim.keymap.set('n', ';p', function()
+  telescope.extensions.project.project()
 end)
 vim.keymap.set("n", "<leader>sf", function()
   telescope.extensions.file_browser.file_browser({

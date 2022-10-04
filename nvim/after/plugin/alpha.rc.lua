@@ -27,9 +27,10 @@ dashboard.section.header.val = logo
 dashboard.section.header.opts.hl = pick_color()
 
 dashboard.section.buttons.val = {
-  dashboard.button("f", "  Find file", ":lua require('telescope.builtin').find_files{}<CR>", {}),
-  dashboard.button("o", "  Recent files", ":lua require'telescope.builtin'.oldfiles{}<CR>", {}),
-  dashboard.button("p", "痢 PackerSync", ":PackerSync<CR>"),
+  dashboard.button("f", "  Find File", ":lua require('telescope.builtin').find_files{}<CR>", {}),
+  dashboard.button("o", "  Recent Files", ":lua require'telescope.builtin'.oldfiles{}<CR>", {}),
+  dashboard.button("p", "  Open Project", ":lua require'telescope'.extensions.project.project{}<CR>"),
+  dashboard.button("s", "痢 PackerSync", ":PackerSync<CR>"),
   dashboard.button("q", "  Quit NVIM", ":qa<CR>"),
 }
 
