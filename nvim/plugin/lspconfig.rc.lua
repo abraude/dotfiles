@@ -60,7 +60,7 @@ protocol.CompletionItemKind = {
   '', -- TypeParameter
 }
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
@@ -74,7 +74,7 @@ nvim_lsp.sumneko_lua.setup {
     Lua = {
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = { 'vim', 'packer_plugins' },
+        globals = { 'vim', 'packer_plugins', 'custom_attach' },
       },
 
       workspace = {
@@ -92,7 +92,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- Configure ElixirLS as the LSP server for Elixir.
 nvim_lsp.elixirls.setup {
   cmd = { "/opt/homebrew/bin/elixir-ls" },
-  -- on_attach = custom_attach, -- this may be required for extended functionalities of the LSP
+  on_attach = custom_attach, -- this may be required for extended functionalities of the LSP
   capabilities = capabilities,
   flags = {
     debounce_text_changes = 150,
