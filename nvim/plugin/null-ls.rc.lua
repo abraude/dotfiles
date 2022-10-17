@@ -18,6 +18,7 @@ local sources = {
   formatting.mix,
   formatting.lua_format,
   completion.spell,
+  formatting.jq,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
