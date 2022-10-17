@@ -88,9 +88,8 @@ nvim_lsp.sumneko_lua.setup {
   },
 }
 
--- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 -- Configure ElixirLS as the LSP server for Elixir.
 nvim_lsp.elixirls.setup {
   cmd = { "/opt/homebrew/bin/elixir-ls" },
