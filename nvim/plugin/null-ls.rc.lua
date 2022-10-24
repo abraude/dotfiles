@@ -10,14 +10,14 @@ local diagnostics = null_ls.builtins.diagnostics
 -- formatting sources
 local formatting = null_ls.builtins.formatting
 
-local completion = null_ls.builtins.completion
+-- local completion = null_ls.builtins.completion
 
 local sources = {
   diagnostics.codespell,
   diagnostics.credo,
   formatting.mix,
   formatting.lua_format,
-  completion.spell,
+  -- completion.spell,
   formatting.jq,
 }
 
