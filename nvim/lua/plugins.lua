@@ -55,4 +55,16 @@ packer.startup(function(use)
   use "ggandor/leap.nvim"
 
   use "nathom/filetype.nvim"
+
+  use {
+    "github/copilot.vim",
+    branch = "release",
+    config = function()
+      local sysname = vim.loop.os_uname().sysname
+      if sysname == "Darwin" then
+        vim.g.copilot_node_command = "/opt/homebrew/Cellar/node@16/16.18.0/bin/node"
+      end
+    end
+  }
+
 end)
