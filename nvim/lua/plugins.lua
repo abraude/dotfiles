@@ -54,17 +54,24 @@ packer.startup(function(use)
   use "phaazon/hop.nvim"
   use "ggandor/leap.nvim"
 
+  -- Rust dev tools
+
+  use 'simrat39/rust-tools.nvim'
+
   use "nathom/filetype.nvim"
 
-  use {
-    "github/copilot.vim",
-    branch = "release",
-    config = function()
-      local sysname = vim.loop.os_uname().sysname
-      if sysname == "Darwin" then
-        vim.g.copilot_node_command = "/opt/homebrew/Cellar/node@16/16.18.0/bin/node"
-      end
-    end
-  }
+  -- without this plugin RustFmt does not work
+  use "rust-lang/rust.vim"
+
+  -- use {
+  --   "github/copilot.vim",
+  --   branch = "release",
+  --   config = function()
+  --     local sysname = vim.loop.os_uname().sysname
+  --     if sysname == "Darwin" then
+  --       vim.g.copilot_node_command = "/opt/homebrew/Cellar/node@16/16.18.0/bin/node"
+  --     end
+  --   end
+  -- }
 
 end)

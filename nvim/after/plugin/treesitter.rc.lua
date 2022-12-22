@@ -25,6 +25,7 @@ ts.setup {
     "v",
     "sql",
     "ledger",
+    "rust",
   },
   autotag = {
     enable = true,
@@ -44,7 +45,8 @@ ts.setup {
       'markdown',
       'glimmer',
       'handlebars',
-      'hbs'
+      'hbs',
+      'rs',
     },
   },
   rainbow = {
