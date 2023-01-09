@@ -26,6 +26,7 @@ ts.setup {
     "sql",
     "ledger",
     "rust",
+    "mermaid",
   },
   autotag = {
     enable = true,
@@ -47,6 +48,8 @@ ts.setup {
       'handlebars',
       'hbs',
       'rs',
+      'mermaid',
+      'mmd',
     },
   },
   rainbow = {
