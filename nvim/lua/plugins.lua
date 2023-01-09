@@ -63,6 +63,12 @@ packer.startup(function(use)
   -- without this plugin RustFmt does not work
   use "rust-lang/rust.vim"
 
+  -- install without yarn or npm
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
   -- use {
   --   "github/copilot.vim",
   --   branch = "release",
