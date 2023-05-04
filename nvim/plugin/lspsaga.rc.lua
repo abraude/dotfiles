@@ -4,15 +4,22 @@ if (not status) then return end
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
-saga.init_lsp_saga {
-  server_filetype_map = {
-    --    typescript = 'typescript'
-  },
-  code_action_lightbulb = {
-    enable = false --to turn off light bulb
-  },
-  border_style = "rounded",
-}
+-- saga.init_lsp_saga {
+--   server_filetype_map = {
+--     --    typescript = 'typescript'
+--   },
+--   code_action_lightbulb = {
+--     enable = false --to turn off light bulb
+--   },
+--   border_style = "rounded",
+-- }
+
+saga.setup({
+  -- ui = {
+  --   kind = require("onenord.integrations.lspsaga").custom_kind(),
+  -- },
+})
+
 
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
