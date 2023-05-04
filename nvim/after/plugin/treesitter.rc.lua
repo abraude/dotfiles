@@ -50,6 +50,7 @@ ts.setup {
       'rs',
       'mermaid',
       'mmd',
+      "journal",
     },
   },
   rainbow = {
